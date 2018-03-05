@@ -1,4 +1,5 @@
 import requests
+import numpy as np
 import pandas as pd
 
 address_df = pd.read_csv('YOUR_FILE_PATH.csv', encoding = "ISO-8859-1")
