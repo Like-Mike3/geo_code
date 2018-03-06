@@ -5,11 +5,11 @@ import pandas as pd
 address_df = pd.read_csv('YOUR_FILE_PATH.csv', encoding = "ISO-8859-1")
 
 google_api_key = "YOUR_GOOGLE_MAPS_KEY"
+url = 'https://maps.googleapis.com/maps/api/geocode/json'
 
 def geocode2(row):
     try:
         address = row
-        url = 'https://maps.googleapis.com/maps/api/geocode/json'
         params = {'key' : google_api_key, 'sensor': 'false', 'address': address}
         r = requests.get(url, params=params)
         results = r.json()['results']
