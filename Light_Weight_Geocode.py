@@ -21,4 +21,7 @@ def geocode2(row):
 #make sure you have a column called "Address" that contains the full address
 address_df['Lat_Long'] = address_df['Address'].apply(lambda x : geocode2(x))
 
+address_df['Lat'] = address_df['Lat_Long'].apply(lambda x: str(x).split(',')[0].replace('(','') )
+address_df['Lon'] = address_df['Lat_Long'].apply(lambda x: str(x).split(',')[1].replace(')','') )
+
 address_df.to_csv('Geocoded.csv', index=False)
